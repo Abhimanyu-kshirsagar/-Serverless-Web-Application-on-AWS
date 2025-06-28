@@ -1,0 +1,21 @@
+let viewerCount = 0;
+
+function updateViewerCount() {
+    viewerCount += 1;
+    document.getElementById('viewerCount').textContent = viewerCount;
+}
+
+// Call this once on page load
+updateViewerCount();
+
+document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    
+    if (name && email) {
+        document.getElementById('greeting').textContent = `Welcome, ${name}!`;
+        document.getElementById('loginForm').reset();
+    }
+});
